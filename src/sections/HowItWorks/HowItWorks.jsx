@@ -1,27 +1,6 @@
-import { Building2, LayoutDashboard, TrendingUp } from "../../components/icons/index.js";
 import { useGsapContext, gsap, prefersReducedMotion } from "../../lib/gsap.js";
+import { STEPS } from "../../data/data.jsx";
 import "./HowItWorks.css";
-
-const STEPS = [
-  {
-    number: "01",
-    icon: Building2,
-    title: "Set Up Your Organization",
-    text: "Configure employees, departments and HR workflows to match how your company works.",
-  },
-  {
-    number: "02",
-    icon: LayoutDashboard,
-    title: "Manage Your Workforce",
-    text: "Handle attendance, time off, payroll, communication and employee operations from one place.",
-  },
-  {
-    number: "03",
-    icon: TrendingUp,
-    title: "Make Better Decisions",
-    text: "Use centralized information and reports to gain better visibility into your workforce.",
-  },
-];
 
 function HowItWorks() {
   const scopeRef = useGsapContext(() => {

@@ -1,36 +1,8 @@
 import { ArrowRight } from "../../components/icons/index.js";
-import { talentverxLogo } from "../../assets/images/image.js";
 import { goToSection } from "../../lib/scroll.js";
 import { useGsapContext, gsap, prefersReducedMotion } from "../../lib/gsap.js";
+import { talentverxLogo, FOOTER_COLUMNS as COLUMNS, SOCIAL_LINKS } from "../../data/data.jsx";
 import "./Footer.css";
-
-const COLUMNS = [
-  {
-    title: "Product",
-    links: [
-      { label: "Features", target: "features" },
-      { label: "Solutions", target: "solutions" },
-      { label: "Pricing", target: "pricing" },
-      { label: "Request a Demo", target: "demo" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "About", target: "home" },
-      { label: "Contact", target: "demo" },
-      { label: "Resources", target: "faq" },
-    ],
-  },
-  {
-    title: "Support",
-    links: [
-      { label: "Help Center", target: "faq" },
-      { label: "FAQ", target: "faq" },
-      { label: "Contact Support", target: "demo" },
-    ],
-  },
-];
 
 function Footer() {
   const scopeRef = useGsapContext(() => {
@@ -78,6 +50,23 @@ function Footer() {
               Get started with a demo
               <ArrowRight size={15} aria-hidden="true" />
             </a>
+
+            <ul className="footer__social" aria-label="Social media links">
+              {SOCIAL_LINKS.map(({ icon: Icon, label, href }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="footer__social-link"
+                    aria-label={label}
+                    title={label}
+                  >
+                    <Icon size={17} aria-hidden="true" />
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="footer__columns">

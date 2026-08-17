@@ -1,46 +1,6 @@
-import {
-  Layers,
-  MousePointerClick,
-  ClipboardCheck,
-  Eye,
-  TrendingUp,
-  UsersRound,
-} from "../../components/icons/index.js";
 import { useGsapContext, gsap, prefersReducedMotion } from "../../lib/gsap.js";
+import { REASONS } from "../../data/data.jsx";
 import "./WhyTalentVerx.css";
-
-const REASONS = [
-  {
-    icon: Layers,
-    title: "One Centralized Platform",
-    text: "Employee data, attendance, leave, payroll and communication live together in a single workspace.",
-  },
-  {
-    icon: MousePointerClick,
-    title: "Simple & Intuitive",
-    text: "A clean interface your HR team and employees will actually want to use every day.",
-  },
-  {
-    icon: ClipboardCheck,
-    title: "Less Administrative Work",
-    text: "Reduce repetitive data entry and manual tracking so HR can focus on people, not paperwork.",
-  },
-  {
-    icon: Eye,
-    title: "Better Workforce Visibility",
-    text: "Attendance, leave and payroll information is organized and easy to review at a glance.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Scalable HR Operations",
-    text: "Built to support growing teams, from your first hire to hundreds of employees.",
-  },
-  {
-    icon: UsersRound,
-    title: "Connected Teams",
-    text: "Managers and employees stay aligned with shared processes and clear communication.",
-  },
-];
 
 function WhyTalentVerx() {
   const scopeRef = useGsapContext(() => {

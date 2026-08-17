@@ -1,38 +1,8 @@
 import { useState } from "react";
 import { ChevronDown } from "../../components/icons/index.js";
 import { useGsapContext, gsap, prefersReducedMotion } from "../../lib/gsap.js";
+import { FAQS } from "../../data/data.jsx";
 import "./Faq.css";
-
-const FAQS = [
-  {
-    q: "What is TalentVerx?",
-    a: "TalentVerx is an all-in-one HR management platform that brings employee management, attendance, time off, payroll information, discussions and reporting together in one workspace.",
-  },
-  {
-    q: "What HR processes can TalentVerx manage?",
-    a: "TalentVerx covers employee records and departments, attendance and presence, time-off requests and approvals, payroll-related information, workplace discussions and HR reports.",
-  },
-  {
-    q: "Can employees manage their own time-off requests?",
-    a: "Yes. Employees can submit time-off requests themselves, and managers can review and approve them directly in the platform.",
-  },
-  {
-    q: "Can managers track attendance?",
-    a: "Yes. Attendance and presence information is centralized, so managers can see who's working and review working hours in one place.",
-  },
-  {
-    q: "Does TalentVerx support payroll management?",
-    a: "TalentVerx centralizes payroll-related employee information, making it easier to organize and prepare payroll. It complements your existing payroll process rather than replacing it.",
-  },
-  {
-    q: "Can TalentVerx scale with growing teams?",
-    a: "TalentVerx is designed to support teams as they grow — from a small company to a larger workforce — with consistent processes in a single platform.",
-  },
-  {
-    q: "Can I request a product demo?",
-    a: "Absolutely. Use the Request a Demo button on this page and our team will get in touch to walk you through the platform.",
-  },
-];
 
 function FaqItem({ faq, isOpen, onToggle, index }) {
   return (

@@ -1,11 +1,72 @@
 import { useState } from "react";
-import { CheckCircle2, Send } from "../../components/icons/index.js";
-import { DemoButton, ExploreButton, SubmitButton } from "../../components/buttons/index.js";
+import { CheckCircle2, Send, Sparkles, ArrowRight } from "../../components/icons/index.js";
+import { DemoButton, ExploreButton, SubmitButton, Button } from "../../components/buttons/index.js";
 import { useGsapContext, gsap, prefersReducedMotion } from "../../lib/gsap.js";
 import { goToSection } from "../../lib/scroll.js";
+import { TEAM_SIZES, CTA_POINTS, CTA_BANNER_POINTS } from "../../data/data.jsx";
 import "./Cta.css";
 
-const TEAM_SIZES = ["1–10", "11–50", "51–200", "201–500", "500+"];
+function CtaBanner() {
+  const scopeRef = useGsapContext(() => {
+    if (prefersReducedMotion()) return;
+    gsap.from(".cta-banner__panel", {
+      opacity: 0,
+      y: 40,
+      duration: 0.7,
+      ease: "power3.out",
+      scrollTrigger: { trigger: ".cta-banner", start: "top 82%" },
+    });
+  });
+
+  return (
+    <section className="cta-banner tv-section" id="get-started" ref={scopeRef}>
+      <div className="tv-container">
+        <div className="cta-banner__panel">
+          <div className="cta-banner__shapes" aria-hidden="true">
+            <span className="cta-banner__shape cta-banner__shape--ring" />
+            <span className="cta-banner__shape cta-banner__shape--bolt" />
+          </div>
+          <div className="cta-banner__copy">
+            <span className="cta-banner__icon">
+              <Sparkles size={20} aria-hidden="true" />
+            </span>
+            <h2 className="tv-heading-lg">
+              Start simplifying HR today — <span className="cta-banner__accent">free for 14 days.</span>
+            </h2>
+            <p>
+              No credit card required. Set up in minutes and see why teams love
+              TalentVerx.
+            </p>
+            <div className="cta-banner__actions">
+              <DemoButton
+                size="lg"
+                onClick={(e) => goToSection(e, "demo")}
+              />
+              <Button
+                href="#pricing"
+                variant="ghost"
+                size="lg"
+                className="cta-banner__ghost"
+                icon={ArrowRight}
+                onClick={(e) => goToSection(e, "pricing")}
+              >
+                Compare pricing
+              </Button>
+            </div>
+          </div>
+          <ul className="cta-banner__points">
+            {CTA_BANNER_POINTS.map((point) => (
+              <li key={point}>
+                <CheckCircle2 size={16} aria-hidden="true" />
+                {point}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function Cta() {
   const [submitted, setSubmitted] = useState(false);
@@ -58,14 +119,12 @@ function Cta() {
               />
             </div>
             <ul className="cta__points">
-              <li>
-                <CheckCircle2 size={16} aria-hidden="true" />
-                No obligation — just a practical walkthrough
-              </li>
-              <li>
-                <CheckCircle2 size={16} aria-hidden="true" />
-                See how TalentVerx fits your team
-              </li>
+              {CTA_POINTS.map((point) => (
+                <li key={point}>
+                  <CheckCircle2 size={16} aria-hidden="true" />
+                  {point}
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -158,4 +217,4 @@ function Cta() {
   );
 }
 
-export default Cta;
+export { Cta as default, CtaBanner };

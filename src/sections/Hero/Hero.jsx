@@ -1,60 +1,21 @@
 import {
   ChevronDown,
-  Users,
-  UserCheck,
-  CalendarOff,
-  Inbox,
-  ArrowUpRight,
   CheckCircle2,
-  UserPlus,
-  WalletCards,
   MessageCircle,
+  UserPlus,
+  ArrowUpRight,
 } from "../../components/icons/index.js";
 import { DemoButton, ExploreButton } from "../../components/buttons/index.js";
+import {
+  HERO_STATS as STATS,
+  HERO_WEEK as WEEK,
+  HERO_LEAVES as LEAVES,
+  HERO_ACTIVITY as ACTIVITY,
+  HERO_POINTS as POINTS,
+} from "../../data/data.jsx";
 import { useGsapContext, gsap, prefersReducedMotion } from "../../lib/gsap.js";
 import { goToSection } from "../../lib/scroll.js";
 import "./Hero.css";
-
-const STATS = [
-  { icon: Users, label: "Total Employees", value: 128, delta: "+6 this month", tone: "blue" },
-  { icon: UserCheck, label: "Present Today", value: 104, delta: "81% of team", tone: "teal" },
-  { icon: CalendarOff, label: "On Leave", value: 6, delta: "2 annual · 4 sick", tone: "amber" },
-  { icon: Inbox, label: "Pending Requests", value: 12, delta: "7 leave · 5 hires", tone: "cyan" },
-];
-
-const WEEK = [
-  { day: "Mon", value: 118 },
-  { day: "Tue", value: 124 },
-  { day: "Wed", value: 121 },
-  { day: "Thu", value: 116 },
-  { day: "Fri", value: 119 },
-  { day: "Sat", value: 32 },
-  { day: "Sun", value: 0 },
-];
-
-const LEAVES = [
-  { label: "Annual leave", used: 14, total: 20 },
-  { label: "Sick leave", used: 3, total: 8 },
-  { label: "Personal leave", used: 1, total: 5 },
-];
-
-const ACTIVITY = [
-  {
-    icon: CalendarOff,
-    text: "Aisha Khan submitted time-off",
-    time: "2m ago",
-  },
-  {
-    icon: UserPlus,
-    text: "Daniel Reyes added to Engineering",
-    time: "1h ago",
-  },
-  {
-    icon: WalletCards,
-    text: "June payroll draft completed",
-    time: "3h ago",
-  },
-];
 
 function DashboardMockup() {
   return (
@@ -74,9 +35,9 @@ function DashboardMockup() {
           </div>
           <div className="hero-dashboard__top-actions">
             <div className="hero-dashboard__avatars" aria-hidden="true">
-              <span style={{ background: "linear-gradient(135deg,#123e9e,#1e5fe8)" }}>AK</span>
-              <span style={{ background: "linear-gradient(135deg,#0e7490,#19c6e8)" }}>DR</span>
-              <span style={{ background: "linear-gradient(135deg,#0f766e,#12b8a6)" }}>SM</span>
+              <img src="/images/avatars/w44.jpg" alt="" className="hero-dashboard__avatar" loading="lazy" />
+              <img src="/images/avatars/m32.jpg" alt="" className="hero-dashboard__avatar" loading="lazy" />
+              <img src="/images/avatars/w68.jpg" alt="" className="hero-dashboard__avatar" loading="lazy" />
             </div>
             <button type="button" className="hero-dashboard__add-btn">
               <UserPlus size={13} aria-hidden="true" />
@@ -315,7 +276,7 @@ function Hero() {
           </div>
 
           <ul className="hero__points" aria-label="Platform highlights">
-            {["Employee Management", "Attendance & Time Off", "Payroll", "Reports"].map(
+            {POINTS.map(
               (point) => (
                 <li key={point}>
                   <CheckCircle2 size={16} aria-hidden="true" />
@@ -352,9 +313,9 @@ function Hero() {
       </div>
 
       <a
-        href="#trust"
+        href="#logos"
         className="hero__scroll"
-        onClick={(e) => goToSection(e, "trust")}
+        onClick={(e) => goToSection(e, "logos")}
         aria-label="Scroll to next section"
       >
         <ChevronDown size={20} aria-hidden="true" />

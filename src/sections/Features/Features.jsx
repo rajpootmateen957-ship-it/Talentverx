@@ -1,60 +1,8 @@
-import {
-  Users,
-  Clock3,
-  CalendarDays,
-  WalletCards,
-  MessageCircle,
-  BarChart3,
-  ArrowRight,
-} from "../../components/icons/index.js";
+import { ArrowRight } from "../../components/icons/index.js";
 import { useGsapContext, gsap, prefersReducedMotion } from "../../lib/gsap.js";
 import { goToSection } from "../../lib/scroll.js";
+import { FEATURES } from "../../data/data.jsx";
 import "./Features.css";
-
-const FEATURES = [
-  {
-    icon: Users,
-    title: "Employee Management",
-    text: "Employee profiles, departments, job information and workforce data in one centralized directory.",
-    size: "wide",
-    visual: "employees",
-  },
-  {
-    icon: Clock3,
-    title: "Attendance & Presence",
-    text: "Track daily attendance, working hours and team presence.",
-    size: "tall",
-    visual: "attendance",
-  },
-  {
-    icon: CalendarDays,
-    title: "Time Off & Absence",
-    text: "Request, review and manage time off from one place.",
-    size: "tall",
-    visual: "timeoff",
-  },
-  {
-    icon: WalletCards,
-    title: "Payroll",
-    text: "Centralize compensation and payroll-related employee information.",
-    size: "tall",
-    visual: "payroll",
-  },
-  {
-    icon: MessageCircle,
-    title: "Discussions",
-    text: "Keep workplace communication in one connected space.",
-    size: "tall",
-    visual: "discussions",
-  },
-  {
-    icon: BarChart3,
-    title: "Reports & Analytics",
-    text: "Clear reports on attendance, leave, payroll and workforce activity.",
-    size: "wide",
-    visual: "reports",
-  },
-];
 
 function TileVisual({ kind }) {
   if (kind === "employees") {
@@ -201,11 +149,11 @@ function Features() {
 
         <div className="features__foot">
           <a
-            href="#solutions"
+            href="#competitors"
             className="tv-btn tv-btn--secondary"
-            onClick={(e) => goToSection(e, "solutions")}
+            onClick={(e) => goToSection(e, "competitors")}
           >
-            Explore each module in detail
+            Compare with other platforms
             <ArrowRight size={16} aria-hidden="true" />
           </a>
         </div>

@@ -203,20 +203,16 @@
   display: flex;
 }
 
-.hero-dashboard__avatars span {
+.hero-dashboard__avatar {
   width: 26px;
   height: 26px;
   border-radius: 50%;
-  color: #fff;
-  font-size: 10px;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  object-fit: cover;
   border: 2px solid var(--tv-white);
+  flex-shrink: 0;
 }
 
-.hero-dashboard__avatars span + span {
+.hero-dashboard__avatar + .hero-dashboard__avatar {
   margin-left: -8px;
 }
 

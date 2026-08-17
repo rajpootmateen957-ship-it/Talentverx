@@ -1,44 +1,8 @@
 import { Check, ArrowRight } from "../../components/icons/index.js";
 import { useGsapContext, gsap, prefersReducedMotion } from "../../lib/gsap.js";
 import { goToSection } from "../../lib/scroll.js";
+import { PLANS } from "../../data/data.jsx";
 import "./Pricing.css";
-
-const PLANS = [
-  {
-    name: "Starter",
-    description: "For small teams getting their HR processes organized.",
-    features: [
-      "Employee directory & profiles",
-      "Attendance tracking",
-      "Time-off requests & approvals",
-      "Core reports",
-    ],
-    highlighted: false,
-  },
-  {
-    name: "Growth",
-    description: "For growing teams that need the full HR workspace.",
-    features: [
-      "Everything in Starter",
-      "Payroll information management",
-      "Discussions & team updates",
-      "Advanced analytics",
-      "Priority support",
-    ],
-    highlighted: true,
-  },
-  {
-    name: "Enterprise",
-    description: "For larger organizations with custom requirements.",
-    features: [
-      "Everything in Growth",
-      "Custom onboarding & setup",
-      "Dedicated support",
-      "Organization-wide controls",
-    ],
-    highlighted: false,
-  },
-];
 
 function Pricing() {
   const scopeRef = useGsapContext(() => {

@@ -1,18 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "../../components/icons/index.js";
 import { LoginButton, DemoButton } from "../../components/buttons/index.js";
-import { talentverxLogo } from "../../assets/images/image.js";
+import { talentverxLogo, NAV_LINKS } from "../../data/data.jsx";
 import { goToSection, scrollToId } from "../../lib/scroll.js";
 import "./Navbar.css";
-
-const NAV_LINKS = [
-  { label: "Home", href: "home" },
-  { label: "Features", href: "features" },
-  { label: "Solutions", href: "solutions" },
-  { label: "Why TalentVerx", href: "why-talentverx" },
-  { label: "Pricing", href: "pricing" },
-  { label: "Resources", href: "faq" },
-];
 
 const SCROLL_THRESHOLD = 24;
 

@@ -1,11 +1,4 @@
 import {
-  Users,
-  Clock3,
-  CalendarDays,
-  WalletCards,
-  MessageCircle,
-  BarChart3,
-  Check,
   ArrowRight,
   MoreHorizontal,
   Search,
@@ -15,90 +8,18 @@ import {
 } from "../../components/icons/index.js";
 import { useGsapContext, gsap, prefersReducedMotion } from "../../lib/gsap.js";
 import { goToSection } from "../../lib/scroll.js";
+import {
+  FS_FEATURES as FEATURES,
+  FS_EMPLOYEE_ROWS,
+  FS_ATTENDANCE_ROWS,
+  FS_TIMEOFF_REQUESTS,
+  FS_PAYROLL_ROWS,
+  FS_CHAT_MESSAGES,
+  FS_CHARTS,
+  FS_REPORT_CHIPS,
+  FS_ATTENDANCE_FOOT,
+} from "../../data/data.jsx";
 import "./FeatureShowcase.css";
-
-const BENEFIT_CHECK = (text) => ({ icon: Check, text });
-
-const FEATURES = [
-  {
-    id: "employee-management",
-    category: "Employee Management",
-    title: "Manage your people from one place.",
-    text: "Manage employee profiles, departments, job information and important workforce data through a centralized HR workspace.",
-    benefits: [
-      BENEFIT_CHECK("Centralized employee information"),
-      BENEFIT_CHECK("Organized workforce management"),
-      BENEFIT_CHECK("Faster access to employee records"),
-    ],
-    icon: Users,
-    mockup: "employees",
-  },
-  {
-    id: "attendance",
-    category: "Attendance & Presence",
-    title: "Know who's working. Stay informed.",
-    text: "Track employee attendance, working hours and daily presence with a centralized system.",
-    benefits: [
-      BENEFIT_CHECK("Simplify attendance tracking"),
-      BENEFIT_CHECK("Improve workforce visibility"),
-      BENEFIT_CHECK("Reduce manual record keeping"),
-    ],
-    icon: Clock3,
-    mockup: "attendance",
-  },
-  {
-    id: "time-off",
-    category: "Time Off & Absence",
-    title: "Make leave management simple.",
-    text: "Employees can submit time-off requests while managers can review and manage them efficiently.",
-    benefits: [
-      BENEFIT_CHECK("Easier leave requests"),
-      BENEFIT_CHECK("Faster approval workflows"),
-      BENEFIT_CHECK("Clear leave visibility"),
-    ],
-    icon: CalendarDays,
-    mockup: "timeoff",
-  },
-  {
-    id: "payroll",
-    category: "Payroll Management",
-    title: "Make payroll easier to manage.",
-    text: "Centralize payroll-related employee information and streamline payroll processes.",
-    benefits: [
-      BENEFIT_CHECK("Organized payroll information"),
-      BENEFIT_CHECK("Less manual administration"),
-      BENEFIT_CHECK("Better visibility into compensation"),
-    ],
-    icon: WalletCards,
-    mockup: "payroll",
-  },
-  {
-    id: "discussions",
-    category: "Discussions",
-    title: "Keep your teams connected.",
-    text: "Make workplace communication easier with centralized discussions and team collaboration.",
-    benefits: [
-      BENEFIT_CHECK("Centralized communication"),
-      BENEFIT_CHECK("Better team collaboration"),
-      BENEFIT_CHECK("Easier workplace updates"),
-    ],
-    icon: MessageCircle,
-    mockup: "discussions",
-  },
-  {
-    id: "reports",
-    category: "Reports & Analytics",
-    title: "Turn HR data into better visibility.",
-    text: "Give HR teams a clearer view of workforce information through useful reports and analytics.",
-    benefits: [
-      BENEFIT_CHECK("Workforce activity insights"),
-      BENEFIT_CHECK("Attendance and leave reporting"),
-      BENEFIT_CHECK("Payroll and headcount summaries"),
-    ],
-    icon: BarChart3,
-    mockup: "reports",
-  },
-];
 
 function MockupFrame({ title, children }) {
   return (
@@ -121,15 +42,9 @@ function MockupFrame({ title, children }) {
 
 function MockupContent({ kind }) {
   if (kind === "employees") {
-    const rows = [
-      { initials: "AK", name: "Aisha Khan", dept: "Product Design", status: "Active", tone: "teal", color: "linear-gradient(135deg,#123e9e,#1e5fe8)" },
-      { initials: "DR", name: "Daniel Reyes", dept: "Engineering", status: "Active", tone: "blue", color: "linear-gradient(135deg,#0e7490,#19c6e8)" },
-      { initials: "SM", name: "Sara Malik", dept: "Marketing", status: "On leave", tone: "amber", color: "linear-gradient(135deg,#0f766e,#12b8a6)" },
-      { initials: "OJ", name: "Omar Javed", dept: "Sales", status: "Active", tone: "blue", color: "linear-gradient(135deg,#4f46e5,#818cf8)" },
-    ];
     return (
       <div className="fs-table">
-        {rows.map((row) => (
+        {FS_EMPLOYEE_ROWS.map((row) => (
           <div className="fs-table__row" key={row.name}>
             <span className="fs-avatar" style={{ background: row.color }}>{row.initials}</span>
             <span className="fs-table__name">{row.name}</span>
@@ -142,15 +57,9 @@ function MockupContent({ kind }) {
   }
 
   if (kind === "attendance") {
-    const rows = [
-      { name: "Engineering", present: "34 / 38", hours: "7h 24m", tone: "teal" },
-      { name: "Product Design", present: "12 / 14", hours: "7h 05m", tone: "teal" },
-      { name: "Marketing", present: "9 / 11", hours: "6h 48m", tone: "blue" },
-      { name: "Sales", present: "15 / 17", hours: "6h 30m", tone: "amber" },
-    ];
     return (
       <div className="fs-attendance">
-        {rows.map((row) => (
+        {FS_ATTENDANCE_ROWS.map((row) => (
           <div className="fs-attendance__row" key={row.name}>
             <div className="fs-attendance__meta">
               <strong>{row.name}</strong>
@@ -160,22 +69,17 @@ function MockupContent({ kind }) {
           </div>
         ))}
         <div className="fs-attendance__foot">
-          <span>Team presence</span>
-          <strong>81%</strong>
+          <span>{FS_ATTENDANCE_FOOT.label}</span>
+          <strong>{FS_ATTENDANCE_FOOT.value}</strong>
         </div>
       </div>
     );
   }
 
   if (kind === "timeoff") {
-    const requests = [
-      { name: "Aisha Khan", type: "Annual · 5 days", tone: "blue" },
-      { name: "Omar Javed", type: "Sick · 2 days", tone: "amber" },
-      { name: "Lena Fischer", type: "Personal · 1 day", tone: "cyan" },
-    ];
     return (
       <div className="fs-timeoff">
-        {requests.map((r) => (
+        {FS_TIMEOFF_REQUESTS.map((r) => (
           <div className="fs-timeoff__card" key={r.name}>
             <div className="fs-timeoff__meta">
               <span className={`fs-tag is-${r.tone}`}>{r.type}</span>
@@ -192,15 +96,9 @@ function MockupContent({ kind }) {
   }
 
   if (kind === "payroll") {
-    const rows = [
-      { name: "Aisha Khan", dept: "Design", amount: "$4,820", status: "Processed", tone: "teal" },
-      { name: "Daniel Reyes", dept: "Engineering", amount: "$6,150", status: "Processed", tone: "teal" },
-      { name: "Sara Malik", dept: "Marketing", amount: "$4,395", status: "Pending", tone: "amber" },
-      { name: "Omar Javed", dept: "Sales", amount: "$5,020", status: "Processed", tone: "teal" },
-    ];
     return (
       <div className="fs-table">
-        {rows.map((row) => (
+        {FS_PAYROLL_ROWS.map((row) => (
           <div className="fs-table__row" key={row.name}>
             <span className="fs-avatar fs-avatar--plain"><UserRound size={13} /></span>
             <span className="fs-table__name">{row.name}</span>
@@ -216,53 +114,42 @@ function MockupContent({ kind }) {
   if (kind === "discussions") {
     return (
       <div className="fs-chat">
-        <div className="fs-chat__msg is-in">
-          <span className="fs-chat__avatar" style={{ background: "linear-gradient(135deg,#123e9e,#1e5fe8)" }}>AK</span>
-          <div>
-            <strong>Aisha Khan</strong>
-            <p>Reminder — time-off requests for next month close on Friday.</p>
+        {FS_CHAT_MESSAGES.map((msg) => (
+          <div className={`fs-chat__msg is-${msg.side}`} key={msg.name}>
+            {msg.side === "in" ? (
+              <span className="fs-chat__avatar" style={{ background: msg.color }}>{msg.initials}</span>
+            ) : null}
+            <div>
+              <strong>{msg.name}</strong>
+              <p>{msg.text}</p>
+            </div>
+            {msg.side === "out" ? (
+              <span className="fs-chat__avatar" style={{ background: msg.color }}>{msg.initials}</span>
+            ) : null}
           </div>
-        </div>
-        <div className="fs-chat__msg is-out">
-          <div>
-            <strong>Daniel Reyes</strong>
-            <p>Thanks! Submitted mine this morning.</p>
-          </div>
-          <span className="fs-chat__avatar" style={{ background: "linear-gradient(135deg,#0e7490,#19c6e8)" }}>DR</span>
-        </div>
-        <div className="fs-chat__msg is-in">
-          <span className="fs-chat__avatar" style={{ background: "linear-gradient(135deg,#0f766e,#12b8a6)" }}>SM</span>
-          <div>
-            <strong>Sara Malik</strong>
-            <p>Same here. All three approvals pending with you, Aisha 🙂</p>
-          </div>
-        </div>
+        ))}
       </div>
     );
   }
 
-  const charts = [
-    { label: "Present employees", bars: [62, 78, 70, 90, 82, 96] },
-    { label: "Leave days taken", bars: [30, 42, 36, 50, 44, 58] },
-  ];
   return (
     <div className="fs-reports">
       <div className="fs-reports__chips">
-        <span className="fs-reports__chip is-strong">Att. rate 92%</span>
-        <span className="fs-reports__chip">12 open requests</span>
-        <span className="fs-reports__chip">6 on leave</span>
+        {FS_REPORT_CHIPS.map((chip, i) => (
+          <span key={chip} className={`fs-reports__chip ${i === 0 ? "is-strong" : ""}`}>{chip}</span>
+        ))}
       </div>
       <div className="fs-reports__chart">
         <div className="fs-reports__legend">
-          <span><i className="is-blue" />Present</span>
-          <span><i className="is-cyan" />Leave</span>
+          <span><i className="is-blue" />{FS_CHARTS[0].label}</span>
+          <span><i className="is-cyan" />{FS_CHARTS[1].label}</span>
         </div>
         <div className="fs-reports__bars">
           <div className="fs-reports__group">
-            {charts[0].bars.map((h, i) => <i key={i} className="is-blue" style={{ height: `${h}%` }} />)}
+            {FS_CHARTS[0].bars.map((h, i) => <i key={i} className="is-blue" style={{ height: `${h}%` }} />)}
           </div>
           <div className="fs-reports__group">
-            {charts[1].bars.map((h, i) => <i key={i} className="is-cyan" style={{ height: `${h}%` }} />)}
+            {FS_CHARTS[1].bars.map((h, i) => <i key={i} className="is-cyan" style={{ height: `${h}%` }} />)}
           </div>
         </div>
       </div>

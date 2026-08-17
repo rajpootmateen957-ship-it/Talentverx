@@ -1,50 +1,20 @@
 import {
-  Users,
-  CalendarDays,
-  WalletCards,
-  BarChart3,
-  MessageCircle,
   Settings,
-  LayoutDashboard,
   Bell,
   Download,
   TrendingUp,
   CalendarCheck2,
+  WalletCards,
 } from "../../components/icons/index.js";
 import { useGsapContext, gsap, prefersReducedMotion } from "../../lib/gsap.js";
+import {
+  DP_SIDEBAR as SIDEBAR,
+  DP_STATS as STATS,
+  DP_WEEK as WEEK,
+  DP_TABLE_ROWS as TABLE_ROWS,
+  DP_LEAVES as LEAVES,
+} from "../../data/data.jsx";
 import "./DashboardPreview.css";
-
-const SIDEBAR = [
-  { icon: LayoutDashboard, label: "Overview", active: true },
-  { icon: Users, label: "Employees" },
-  { icon: CalendarDays, label: "Time Off" },
-  { icon: WalletCards, label: "Payroll" },
-  { icon: MessageCircle, label: "Discussions" },
-  { icon: BarChart3, label: "Reports" },
-];
-
-const STATS = [
-  { label: "Total Employees", value: 128, delta: "+6 this month" },
-  { label: "Present Today", value: 104, delta: "81% of team" },
-  { label: "On Leave", value: 6, delta: "4 annual · 2 sick" },
-  { label: "Pending Requests", value: 12, delta: "across 3 modules" },
-];
-
-const WEEK = [
-  { day: "Mon", present: 118, leave: 4 },
-  { day: "Tue", present: 124, leave: 3 },
-  { day: "Wed", present: 121, leave: 5 },
-  { day: "Thu", present: 116, leave: 6 },
-  { day: "Fri", present: 119, leave: 4 },
-];
-
-const TABLE_ROWS = [
-  { initials: "AK", name: "Aisha Khan", dept: "Product Design", role: "Design Lead", status: "Active", color: "linear-gradient(135deg,#123e9e,#1e5fe8)", tone: "teal" },
-  { initials: "DR", name: "Daniel Reyes", dept: "Engineering", role: "Frontend Engineer", status: "Active", color: "linear-gradient(135deg,#0e7490,#19c6e8)", tone: "teal" },
-  { initials: "SM", name: "Sara Malik", dept: "Marketing", role: "Growth Manager", status: "On leave", color: "linear-gradient(135deg,#0f766e,#12b8a6)", tone: "amber" },
-  { initials: "OJ", name: "Omar Javed", dept: "Sales", role: "Account Executive", status: "Active", color: "linear-gradient(135deg,#4f46e5,#818cf8)", tone: "teal" },
-  { initials: "LF", name: "Lena Fischer", dept: "People Ops", role: "HR Generalist", status: "Active", color: "linear-gradient(135deg,#b45309,#f59e0b)", tone: "teal" },
-];
 
 function DashboardPreview() {
   const scopeRef = useGsapContext(() => {
@@ -223,11 +193,7 @@ function DashboardPreview() {
                       <h4>Leave utilization</h4>
                       <span className="dp-panel__chip">2026</span>
                     </div>
-                    {[
-                      { label: "Annual", used: 14, total: 20 },
-                      { label: "Sick", used: 3, total: 8 },
-                      { label: "Personal", used: 1, total: 5 },
-                    ].map(({ label, used, total }) => (
+                    {LEAVES.map(({ label, used, total }) => (
                       <div className="dp-leave" key={label}>
                         <div className="dp-leave__meta">
                           <span>{label}</span>

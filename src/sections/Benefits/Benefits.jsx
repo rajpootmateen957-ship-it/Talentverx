@@ -1,36 +1,6 @@
-import { Timer, BadgeCheck, Eye, HeartHandshake } from "../../components/icons/index.js";
 import { useGsapContext, gsap, prefersReducedMotion } from "../../lib/gsap.js";
+import { BENEFITS, BENEFITS_STATS as STATS } from "../../data/data.jsx";
 import "./Benefits.css";
-
-const BENEFITS = [
-  {
-    icon: Timer,
-    title: "Save Time",
-    text: "Reduce repetitive HR administration so your team can focus on strategic work.",
-  },
-  {
-    icon: BadgeCheck,
-    title: "Improve Accuracy",
-    text: "Keep workforce information organized, consistent and up to date.",
-  },
-  {
-    icon: Eye,
-    title: "Increase Visibility",
-    text: "Understand attendance, leave, payroll and workforce activity more clearly.",
-  },
-  {
-    icon: HeartHandshake,
-    title: "Improve Employee Experience",
-    text: "Make everyday HR processes simpler for employees and managers alike.",
-  },
-];
-
-const STATS = [
-  { value: 6, suffix: "", label: "Core HR modules in one platform" },
-  { value: 1, suffix: "", label: "Unified workspace for your team" },
-  { value: 3, suffix: " steps", label: "From setup to daily operation" },
-  { value: 24, suffix: "/7", label: "Self-service access for employees" },
-];
 
 function Benefits() {
   const scopeRef = useGsapContext(() => {

@@ -1,34 +1,6 @@
-import {
-  ClipboardList,
-  Layers,
-  CalendarClock,
-  EyeOff,
-} from "../../components/icons/index.js";
 import { useGsapContext, gsap, prefersReducedMotion } from "../../lib/gsap.js";
+import { PROBLEMS } from "../../data/data.jsx";
 import "./Problems.css";
-
-const PROBLEMS = [
-  {
-    icon: ClipboardList,
-    title: "Too much manual work",
-    text: "HR teams lose hours every week on spreadsheets, email chains and repetitive data entry that software should handle.",
-  },
-  {
-    icon: Layers,
-    title: "Fragmented employee data",
-    text: "Employee information lives in different systems and files, making it hard to get one clear, accurate view of your people.",
-  },
-  {
-    icon: CalendarClock,
-    title: "Attendance and leave chaos",
-    text: "Tracking presence, working hours and time-off requests without a central system is slow, error-prone and frustrating.",
-  },
-  {
-    icon: EyeOff,
-    title: "Limited HR visibility",
-    text: "Payroll, headcount and operational information is scattered, so decisions rely on outdated or incomplete data.",
-  },
-];
 
 function Problems() {
   const scopeRef = useGsapContext(() => {
