@@ -1,35 +1,123 @@
-.testi__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-lg);
+.testi__container {
+  max-width: 780px;
 }
 
-.testi__card {
-  position: relative;
+.testi__list {
   display: flex;
   flex-direction: column;
-  padding: var(--space-xl) var(--space-lg);
-  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out);
+  gap: var(--space-md);
 }
 
-.testi__card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--tv-shadow);
+.testi__item {
+  background: var(--tv-white);
+  border: 1px solid var(--tv-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color var(--dur) ease, box-shadow var(--dur) ease;
 }
 
-.testi__sample {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  font-size: 10.5px;
+.testi__item.is-open {
+  border-color: rgba(30, 95, 232, 0.35);
+  box-shadow: var(--tv-shadow-sm);
+}
+
+.testi__question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: 18px 22px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 16px;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--tv-text-muted);
+  color: var(--tv-navy);
+}
+
+.testi__question:hover {
+  color: var(--tv-primary);
+}
+
+.testi__logo {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px;
+  border-radius: 12px;
   background: var(--tv-bg);
   border: 1px solid var(--tv-border);
-  border-radius: 999px;
-  padding: 3px 10px;
+  animation: testi-float 3.2s ease-in-out infinite;
+}
+
+.testi__item:nth-child(even) .testi__logo {
+  animation-delay: 0.5s;
+}
+
+.testi__item:nth-child(3n) .testi__logo {
+  animation-delay: 1s;
+}
+
+.testi__logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@keyframes testi-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.testi__question-text {
+  flex: 1;
+}
+
+.testi__chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--tv-bg);
+  color: var(--tv-navy-soft);
+  flex-shrink: 0;
+  animation: testi-float 3.2s ease-in-out infinite;
+  animation-delay: 0.8s;
+  transition: transform var(--dur) var(--ease-out), background-color var(--dur) ease,
+    color var(--dur) ease, animation var(--dur) ease;
+}
+
+.testi__item.is-open .testi__chevron {
+  animation: none;
+  transform: rotate(180deg);
+  background: var(--tv-primary-light);
+  color: var(--tv-primary-dark);
+}
+
+.testi__answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--dur-slow) var(--ease-out);
+}
+
+.testi__item.is-open .testi__answer {
+  grid-template-rows: 1fr;
+}
+
+.testi__body {
+  overflow: hidden;
+  min-height: 0;
+  padding: 0 22px 24px;
 }
 
 .testi__stars {
@@ -39,16 +127,39 @@
   margin-bottom: var(--space-md);
 }
 
+.testi__stars svg {
+  animation: testi-twinkle 2.4s ease-in-out infinite;
+}
+
+.testi__stars svg:nth-child(2n) {
+  animation-delay: 0.3s;
+}
+
+.testi__stars svg:nth-child(3n) {
+  animation-delay: 0.6s;
+}
+
+@keyframes testi-twinkle {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+}
+
 .testi__quote-icon {
   color: var(--tv-primary-light);
   margin-bottom: var(--space-md);
+  animation: testi-float 3.2s ease-in-out infinite;
+  animation-delay: 0.3s;
 }
 
 .testi__quote {
   font-size: 15px;
   line-height: 1.65;
   color: var(--tv-navy-soft);
-  flex: 1;
 }
 
 .testi__author {
@@ -64,6 +175,7 @@
   width: 42px;
   height: 42px;
   border-radius: 50%;
+  background: var(--tv-primary);
   color: #fff;
   font-size: 13px;
   font-weight: 600;
@@ -84,10 +196,11 @@
   color: var(--tv-text-muted);
 }
 
-@media (max-width: 1024px) {
-  .testi__grid {
-    grid-template-columns: 1fr;
-    max-width: 640px;
-    margin-inline: auto;
+@media (prefers-reduced-motion: reduce) {
+  .testi__logo,
+  .testi__chevron,
+  .testi__quote-icon,
+  .testi__stars svg {
+    animation: none;
   }
 }

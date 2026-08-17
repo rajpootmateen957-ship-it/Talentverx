@@ -90,6 +90,11 @@ body.nav-menu-open {
   padding-block: var(--section-pad);
 }
 
+/* Sections are stacked over pinned sections as the user scrolls */
+main > section {
+  position: relative;
+}
+
 .tv-section--tinted {
   background: var(--tv-bg);
 }

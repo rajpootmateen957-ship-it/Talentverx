@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { useGsapContext } from "../lib/gsap.js";
+import { setupSectionStack } from "../lib/animations.js";
 import Navbar from "../sections/Navbar/Navbar.jsx";
 import Hero from "../sections/Hero/Hero.jsx";
 import Logos from "../sections/Logos/Logos.jsx";
@@ -25,10 +27,14 @@ function Home() {
     }
   }, [hash]);
 
+  const mainRef = useGsapContext(() => {
+    setupSectionStack(mainRef.current);
+  });
+
   return (
     <>
       <Navbar />
-      <main>
+      <main ref={mainRef}>
         <Hero />
         <Logos />
         <Verified />

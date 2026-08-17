@@ -35,7 +35,7 @@ function FaqItem({ faq, isOpen, onToggle, index }) {
 }
 
 function Faq() {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(-1);
 
   const scopeRef = useGsapContext(() => {
     if (prefersReducedMotion()) return;

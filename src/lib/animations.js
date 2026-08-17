@@ -1,4 +1,4 @@
-import { gsap, prefersReducedMotion } from "./gsap.js";
+import { gsap, ScrollTrigger, prefersReducedMotion } from "./gsap.js";
 
 export function dashboardPreviewSetup() {
   if (prefersReducedMotion()) return;
@@ -72,6 +72,63 @@ export function dashboardPreviewSetup() {
       end: "bottom top",
       scrub: 0.6,
     },
+  });
+}
+
+export function setupSectionStack(main) {
+  if (prefersReducedMotion() || !main) return;
+
+  const mm = gsap.matchMedia(main);
+
+  mm.add("(min-width: 769px)", () => {
+    const END_ID = "get-started";
+
+    const buildTriggers = () => {
+      const sections = gsap.utils.toArray(main.querySelectorAll("section"));
+      const endSection = sections.find((s) => s.id === END_ID);
+      const stackable = sections
+        .filter((s) => s.id !== "competitors" && s.id !== END_ID)
+        .filter((s) => s.scrollHeight <= window.innerHeight + 2);
+
+      return stackable
+        .map((section, index) => {
+          const next = stackable[index + 1] || endSection;
+          if (!next) return null;
+          return ScrollTrigger.create({
+            trigger: section,
+            start: "top top",
+            endTrigger: next,
+            end: "top top",
+            pin: true,
+            pinSpacing: false,
+            anticipatePin: 1,
+          });
+        })
+        .filter(Boolean);
+    };
+
+    let triggers = buildTriggers();
+    let resizeTimer;
+
+    const onResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        triggers.forEach((t) => t.kill());
+        triggers = buildTriggers();
+        ScrollTrigger.refresh();
+      }, 150);
+    };
+
+    const onLoad = () => ScrollTrigger.refresh();
+    window.addEventListener("resize", onResize);
+    window.addEventListener("load", onLoad);
+
+    return () => {
+      clearTimeout(resizeTimer);
+      window.removeEventListener("resize", onResize);
+      window.removeEventListener("load", onLoad);
+      triggers.forEach((t) => t.kill());
+    };
   });
 }
 
