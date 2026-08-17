@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft, LogIn } from "../components/icons/index.js";
 import { SubmitButton } from "../components/buttons/index.js";
-import { talentverxLogo } from "../assets/images/image.js";
+import { talentverxLogo } from "../data/data.jsx";
 import "./LoginPage.css";
 
 function LoginPage() {

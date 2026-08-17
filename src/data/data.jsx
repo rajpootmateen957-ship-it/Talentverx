@@ -33,8 +33,9 @@ import {
   WalletCards,
 } from "../components/icons/index.js";
 import { Facebook, Instagram, Linkedin } from "../components/icons/index.js";
+import talentverxLogo from "../assets/talentverx logo icon (1).jpeg";
 
-export { talentverxLogo } from "../assets/images/image.js";
+export { talentverxLogo };
 
 export const NAV_LINKS = [
   { label: "Home", href: "home" },
