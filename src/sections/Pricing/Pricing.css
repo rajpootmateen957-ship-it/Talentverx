@@ -1,0 +1,121 @@
+.pricing {
+  background: var(--tv-white);
+}
+
+.pricing__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  align-items: stretch;
+}
+
+.pricing__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-xl) var(--space-lg);
+  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out),
+    border-color var(--dur) var(--ease-out);
+}
+
+.pricing__card:hover {
+  transform: translateY(-4px);
+}
+
+.pricing__card.is-highlighted {
+  border-color: transparent;
+  background: linear-gradient(var(--tv-white), var(--tv-white)) padding-box,
+    var(--tv-gradient) border-box;
+  box-shadow: var(--tv-shadow);
+}
+
+.pricing__badge {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--tv-gradient);
+  border-radius: 999px;
+  padding: 5px 14px;
+  white-space: nowrap;
+  box-shadow: var(--tv-shadow-primary);
+}
+
+.pricing__name {
+  font-size: 1.375rem;
+  margin-bottom: var(--space-xs);
+}
+
+.pricing__desc {
+  font-size: var(--text-sm);
+  color: var(--tv-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+.pricing__price {
+  font-family: var(--tv-font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--tv-navy);
+  margin-bottom: var(--space-lg);
+}
+
+.pricing__price span {
+  font-family: var(--tv-font);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  color: var(--tv-text-muted);
+}
+
+.pricing__features {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin-bottom: var(--space-xl);
+  flex: 1;
+}
+
+.pricing__features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--tv-navy-soft);
+}
+
+.pricing__check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--tv-teal-light);
+  color: #0f766e;
+  flex-shrink: 0;
+}
+
+.pricing__note {
+  text-align: center;
+  margin-top: var(--space-xl);
+  font-size: var(--text-sm);
+  color: var(--tv-text-muted);
+}
+
+.pricing__note a {
+  font-weight: 600;
+  color: var(--tv-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 1024px) {
+  .pricing__grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin-inline: auto;
+  }
+}

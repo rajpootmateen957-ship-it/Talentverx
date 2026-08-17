@@ -1,0 +1,217 @@
+.tv-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: box-shadow var(--dur) ease, border-color var(--dur) ease,
+    background-color var(--dur) ease;
+  font-family: var(--tv-font);
+}
+
+.tv-navbar.is-scrolled {
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom-color: var(--tv-border);
+  box-shadow: 0 6px 24px rgba(11, 30, 61, 0.08);
+}
+
+.tv-navbar__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  height: 84px;
+  transition: height 300ms var(--ease-out);
+}
+
+.tv-navbar.is-scrolled .tv-navbar__inner {
+  height: 66px;
+}
+
+/* Brand */
+.tv-navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+}
+
+.tv-navbar__logo {
+  height: 44px;
+  width: auto;
+  border-radius: 10px;
+  transition: height 300ms var(--ease-out);
+}
+
+.tv-navbar.is-scrolled .tv-navbar__logo {
+  height: 38px;
+}
+
+.tv-navbar__wordmark {
+  font-family: var(--tv-font-display);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--tv-navy);
+  white-space: nowrap;
+}
+
+.tv-navbar__wordmark span {
+  background: var(--tv-gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Center links */
+.tv-navbar__nav {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.tv-navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.tv-navbar__link {
+  position: relative;
+  display: inline-block;
+  padding: 8px 14px;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--tv-navy-soft);
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  transition: color var(--dur) ease, background-color var(--dur) ease;
+}
+
+.tv-navbar__link::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 2px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--tv-gradient);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms var(--ease-out);
+}
+
+.tv-navbar__link:hover {
+  color: var(--tv-primary-dark);
+  background: var(--tv-primary-light);
+}
+
+.tv-navbar__link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Actions */
+.tv-navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* Toggle */
+.tv-navbar__toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--tv-border-strong);
+  background: var(--tv-white);
+  color: var(--tv-navy);
+  flex-shrink: 0;
+  transition: background-color var(--dur) ease, border-color var(--dur) ease;
+}
+
+.tv-navbar__toggle:hover {
+  background: var(--tv-primary-light);
+  border-color: var(--tv-primary);
+}
+
+/* Mobile menu */
+.tv-mobile-menu {
+  display: none;
+  max-height: 0;
+  overflow: hidden;
+  background: var(--tv-white);
+  border-bottom: 1px solid var(--tv-border);
+  transition: max-height 320ms var(--ease-out);
+}
+
+.tv-mobile-menu.is-open {
+  max-height: 560px;
+}
+
+.tv-mobile-menu__links {
+  padding: var(--space-md) var(--container-pad) 4px;
+}
+
+.tv-mobile-menu__link {
+  display: block;
+  padding: 13px 4px;
+  font-size: 15.5px;
+  font-weight: 500;
+  color: var(--tv-navy);
+  border-bottom: 1px solid var(--tv-border);
+}
+
+.tv-mobile-menu__link:hover {
+  color: var(--tv-primary);
+}
+
+.tv-mobile-menu__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px var(--container-pad) 24px;
+}
+
+@media (max-width: 1024px) {
+  .tv-navbar__link {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 880px) {
+  .tv-navbar__nav,
+  .tv-navbar__actions {
+    display: none;
+  }
+
+  .tv-navbar__toggle {
+    display: inline-flex;
+  }
+
+  .tv-mobile-menu {
+    display: block;
+  }
+
+  .tv-navbar__inner {
+    height: 72px;
+  }
+
+  .tv-navbar.is-scrolled .tv-navbar__inner {
+    height: 62px;
+  }
+}
+
+@media (max-width: 420px) {
+  .tv-navbar__wordmark {
+    font-size: 17px;
+  }
+}

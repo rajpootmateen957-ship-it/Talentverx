@@ -1,0 +1,105 @@
+.benefits {
+  background: var(--tv-white);
+}
+
+.benefits__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+}
+
+.benefits__card {
+  position: relative;
+  padding: var(--space-xl) var(--space-lg);
+  overflow: hidden;
+  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out);
+}
+
+.benefits__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--tv-shadow);
+}
+
+.benefits__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  background: var(--tv-gradient);
+  color: #fff;
+  margin-bottom: var(--space-lg);
+  box-shadow: var(--tv-shadow-primary);
+}
+
+.benefits__card h3 {
+  font-size: 1.375rem;
+  margin-bottom: var(--space-sm);
+}
+
+.benefits__card p {
+  font-size: var(--text-sm);
+  color: var(--tv-text-muted);
+}
+
+.benefits__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-2xl);
+  padding: var(--space-2xl) var(--space-xl);
+  background: var(--tv-gradient);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--tv-shadow-lg);
+}
+
+.benefits__stat {
+  text-align: center;
+}
+
+.benefits__stat-num {
+  font-family: var(--tv-font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.benefits__stat-num .tv-gradient-text {
+  background: linear-gradient(120deg, #ffffff, #cfe7ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.benefits__stat p {
+  margin-top: var(--space-sm);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+@media (max-width: 1024px) {
+  .benefits__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .benefits__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .benefits__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .benefits__stats {
+    grid-template-columns: 1fr 1fr;
+    padding: var(--space-xl) var(--space-md);
+    gap: var(--space-lg);
+  }
+}

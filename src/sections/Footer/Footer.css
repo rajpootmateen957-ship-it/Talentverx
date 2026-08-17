@@ -1,0 +1,134 @@
+.footer {
+  background: var(--tv-navy);
+  color: rgba(255, 255, 255, 0.72);
+  padding-top: var(--space-2xl);
+}
+
+.footer__inner {
+  display: grid;
+  grid-template-columns: 1.3fr 1.7fr;
+  gap: var(--space-2xl);
+  padding-block: var(--space-2xl);
+}
+
+.footer__logo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: var(--radius-sm);
+}
+
+.footer__logo {
+  height: 40px;
+  width: auto;
+  border-radius: 9px;
+}
+
+.footer__wordmark {
+  font-family: var(--tv-font-display);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.footer__wordmark span {
+  background: linear-gradient(120deg, #7ab0ff, #19c6e8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.footer__brand p {
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  max-width: 360px;
+  margin: var(--space-md) 0 var(--space-lg);
+}
+
+.footer__cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: #fff;
+  background: var(--tv-gradient);
+  border-radius: var(--radius-md);
+  padding: 12px 20px;
+  box-shadow: var(--tv-shadow-primary);
+  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out);
+}
+
+.footer__cta-link:hover {
+  transform: translateY(-2px);
+}
+
+.footer__cta-link svg {
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.footer__cta-link:hover svg {
+  transform: translateX(3px);
+}
+
+.footer__columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+}
+
+.footer__col h3 {
+  font-family: var(--tv-font);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.48);
+  margin-bottom: var(--space-md);
+}
+
+.footer__col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.footer__col a {
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.78);
+  transition: color var(--dur) ease;
+}
+
+.footer__col a:hover {
+  color: #fff;
+}
+
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  padding-block: var(--space-lg);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 900px) {
+  .footer__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .footer__columns {
+    gap: var(--space-lg);
+  }
+}
+
+@media (max-width: 560px) {
+  .footer__columns {
+    grid-template-columns: 1fr 1fr;
+  }
+}

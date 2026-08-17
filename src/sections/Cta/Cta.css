@@ -1,0 +1,276 @@
+.cta {
+  background: var(--tv-white);
+}
+
+.cta__panel {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+  background: var(--tv-gradient);
+  border-radius: var(--radius-xl);
+  padding: clamp(2.5rem, 6vw, 4.5rem);
+  box-shadow: var(--tv-shadow-lg);
+}
+
+/* Decorative shapes inspired by the logo */
+.cta__shapes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.cta__shape--bolt {
+  position: absolute;
+  top: -60px;
+  right: -40px;
+  width: 220px;
+  height: 220px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.03));
+  transform: rotate(45deg) skewX(-18deg);
+  border-radius: 28px;
+}
+
+.cta__shape--ring {
+  position: absolute;
+  bottom: -90px;
+  left: -70px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  border: 42px solid rgba(255, 255, 255, 0.07);
+}
+
+.cta__shape--bar,
+.cta__shape--bar2 {
+  position: absolute;
+  width: 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.cta__shape--bar {
+  top: 18%;
+  right: 12%;
+  height: 90px;
+  transform: rotate(24deg);
+}
+
+.cta__shape--bar2 {
+  top: 30%;
+  right: 6%;
+  height: 60px;
+  transform: rotate(-18deg);
+}
+
+/* Copy */
+.cta__copy {
+  position: relative;
+  z-index: 1;
+}
+
+.cta__eyebrow {
+  display: inline-block;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  padding: 6px 14px;
+  margin-bottom: var(--space-lg);
+}
+
+.cta__copy h2 {
+  color: #fff;
+  margin-bottom: var(--space-md);
+}
+
+.cta__copy > p {
+  font-size: var(--text-lg);
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 480px;
+  margin-bottom: var(--space-xl);
+}
+
+.cta__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.cta__buttons .tv-btn--secondary {
+  border-color: transparent;
+}
+
+.cta__ghost {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.cta__ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.cta__points {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cta__points li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.cta__points svg {
+  color: rgba(255, 255, 255, 0.9);
+  flex-shrink: 0;
+}
+
+/* Form */
+.cta__form-wrap {
+  position: relative;
+  z-index: 1;
+  background: var(--tv-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--tv-shadow-lg);
+  max-width: 520px;
+  justify-self: end;
+  width: 100%;
+}
+
+.cta__form h3,
+.cta__success h3 {
+  font-size: 1.375rem;
+  margin-bottom: var(--space-xs);
+}
+
+.cta__form-sub {
+  font-size: var(--text-sm);
+  color: var(--tv-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+.cta__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: var(--space-md);
+}
+
+.cta__field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--tv-navy);
+}
+
+.cta__field input,
+.cta__field select,
+.cta__field textarea {
+  width: 100%;
+  border: 1px solid var(--tv-border-strong);
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-size: 14.5px;
+  color: var(--tv-navy);
+  background: var(--tv-white);
+  transition: border-color var(--dur) ease, box-shadow var(--dur) ease;
+}
+
+.cta__field textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+.cta__field input:focus,
+.cta__field select:focus,
+.cta__field textarea:focus {
+  outline: none;
+  border-color: var(--tv-primary);
+  box-shadow: 0 0 0 3px rgba(30, 95, 232, 0.14);
+}
+
+.cta__field input::placeholder,
+.cta__field textarea::placeholder {
+  color: #9aa7bd;
+}
+
+.cta__field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.cta__form .tv-btn {
+  margin-top: var(--space-sm);
+}
+
+/* Success state */
+.cta__success {
+  text-align: center;
+  padding: var(--space-xl) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.cta__success-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--tv-teal-light);
+  color: #0f766e;
+  margin-bottom: var(--space-sm);
+}
+
+.cta__success p {
+  font-size: var(--text-sm);
+  color: var(--tv-text-muted);
+  max-width: 300px;
+  margin-bottom: var(--space-md);
+}
+
+@media (max-width: 1024px) {
+  .cta__panel {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .cta__form-wrap {
+    justify-self: center;
+  }
+}
+
+@media (max-width: 560px) {
+  .cta__panel {
+    padding: var(--space-xl) var(--space-lg);
+    border-radius: var(--radius-lg);
+  }
+
+  .cta__form-wrap {
+    padding: var(--space-lg);
+  }
+
+  .cta__field-row {
+    grid-template-columns: 1fr;
+  }
+
+  .cta__buttons .tv-btn {
+    flex: 1 1 100%;
+  }
+}

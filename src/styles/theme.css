@@ -1,0 +1,69 @@
+:root {
+  /* ---- Brand palette ---- */
+  --tv-primary: #1e5fe8;
+  --tv-primary-dark: #123e9e;
+  --tv-primary-bright: #2f7bf6;
+  --tv-primary-light: #eaf2ff;
+  --tv-navy: #0b1e3d;
+  --tv-navy-soft: #33415c;
+  --tv-cyan: #19c6e8;
+  --tv-cyan-light: #ddf7fc;
+  --tv-teal: #12b8a6;
+  --tv-teal-light: #dcf7f3;
+
+  --tv-white: #ffffff;
+  --tv-bg: #f7faff;
+  --tv-bg-deep: #eef4ff;
+  --tv-text: #0b1e3d;
+  --tv-text-muted: #5c6b85;
+
+  --tv-border: rgba(11, 30, 61, 0.09);
+  --tv-border-strong: rgba(11, 30, 61, 0.16);
+
+  --tv-shadow-sm: 0 1px 2px rgba(11, 30, 61, 0.05),
+    0 4px 14px rgba(11, 30, 61, 0.06);
+  --tv-shadow: 0 14px 36px -10px rgba(11, 30, 61, 0.16);
+  --tv-shadow-lg: 0 28px 70px -14px rgba(11, 30, 61, 0.22);
+  --tv-shadow-primary: 0 12px 26px -8px rgba(30, 95, 232, 0.45);
+
+  --tv-gradient: linear-gradient(135deg, #123e9e 0%, #1e5fe8 48%, #19c6e8 100%);
+  --tv-gradient-soft: linear-gradient(135deg, #eaf2ff 0%, #ddf7fc 100%);
+  --tv-gradient-text: linear-gradient(120deg, #123e9e 0%, #1e5fe8 55%, #19c6e8 100%);
+
+  /* ---- Typography ---- */
+  --tv-font: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --tv-font-display: "Sora", "Inter", "Segoe UI", system-ui, sans-serif;
+
+  --heading-xl: clamp(2.5rem, 5.4vw, 4rem);
+  --heading-lg: clamp(2rem, 3.6vw, 3rem);
+  --heading-md: clamp(1.375rem, 2.1vw, 1.875rem);
+  --text-lg: clamp(1.0625rem, 1.3vw, 1.1875rem);
+  --text-md: 1rem;
+  --text-sm: 0.875rem;
+  --text-xs: 0.8125rem;
+
+  /* ---- Spacing ---- */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  /* ---- Layout ---- */
+  --container: 1280px;
+  --container-pad: clamp(1.25rem, 4vw, 2rem);
+  --section-pad: clamp(4.5rem, 9vw, 7rem);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-fast: 180ms;
+  --dur: 300ms;
+  --dur-slow: 550ms;
+}

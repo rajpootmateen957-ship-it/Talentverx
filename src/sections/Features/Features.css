@@ -1,0 +1,248 @@
+.bento {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+}
+
+.bento__tile {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-xl);
+  min-height: 280px;
+  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out),
+    border-color var(--dur) var(--ease-out);
+}
+
+.bento__tile:hover {
+  transform: translateY(-4px);
+  border-color: var(--tv-border-strong);
+  box-shadow: var(--tv-shadow);
+}
+
+.bento__tile--wide {
+  grid-column: span 2;
+}
+
+.bento__tile-title {
+  font-size: 1.125rem;
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-xs);
+}
+
+.bento__tile-text {
+  font-size: var(--text-sm);
+  color: var(--tv-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+.bento__tile-visual {
+  margin-top: auto;
+  min-height: 84px;
+}
+
+/* Tile visuals */
+.bento__table {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bento__table-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border: 1px solid var(--tv-border);
+  border-radius: 10px;
+  background: var(--tv-white);
+}
+
+.bento__avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bento__table-name {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--tv-navy);
+}
+
+.bento__table-dept {
+  font-size: 11.5px;
+  color: var(--tv-text-muted);
+  margin-right: auto;
+}
+
+.bento__tag {
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.bento__tag.is-teal {
+  background: var(--tv-teal-light);
+  color: #0f766e;
+}
+
+.bento__tag.is-blue {
+  background: var(--tv-primary-light);
+  color: var(--tv-primary-dark);
+}
+
+.bento__tag.is-amber {
+  background: #fdf3e3;
+  color: #c07a17;
+}
+
+.bento__minibars {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 84px;
+}
+
+.bento__minibars span {
+  flex: 1;
+  border-radius: 4px 4px 1px 1px;
+  background: var(--tv-gradient);
+  opacity: 0.85;
+}
+
+.bento__mini-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bento__mini-chip {
+  align-self: flex-start;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--tv-primary-dark);
+  background: var(--tv-primary-light);
+  border-radius: 999px;
+  padding: 6px 14px;
+}
+
+.bento__mini-chip.is-muted {
+  color: var(--tv-navy-soft);
+  background: var(--tv-bg);
+}
+
+.bento__payroll span {
+  font-family: var(--tv-font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--tv-navy);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.bento__payroll-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 34px;
+}
+
+.bento__payroll-row i {
+  flex: 1;
+  border-radius: 3px 3px 0 0;
+  background: var(--tv-gradient-soft);
+}
+
+.bento__payroll-row i.is-strong {
+  background: var(--tv-gradient);
+}
+
+.bento__chat {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.bento__bubble {
+  align-self: flex-start;
+  font-size: 11.5px;
+  color: var(--tv-navy-soft);
+  background: var(--tv-bg);
+  border: 1px solid var(--tv-border);
+  border-radius: 12px 12px 12px 4px;
+  padding: 7px 12px;
+  max-width: 88%;
+}
+
+.bento__bubble.is-out {
+  align-self: flex-end;
+  background: var(--tv-primary-light);
+  border-color: transparent;
+  border-radius: 12px 12px 4px 12px;
+  color: var(--tv-primary-dark);
+}
+
+.bento__chart {
+  display: flex;
+  gap: var(--space-xl);
+}
+
+.bento__chart-row {
+  flex: 1;
+}
+
+.bento__chart-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--tv-text-muted);
+  margin-bottom: 8px;
+}
+
+.bento__chart-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 56px;
+}
+
+.bento__chart-bars i {
+  flex: 1;
+  border-radius: 4px 4px 1px 1px;
+  background: var(--tv-gradient);
+}
+
+.bento__chart-row:last-child .bento__chart-bars i {
+  background: var(--tv-cyan);
+  opacity: 0.75;
+}
+
+.features__foot {
+  text-align: center;
+  margin-top: var(--space-2xl);
+}
+
+@media (max-width: 1024px) {
+  .bento {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .bento {
+    grid-template-columns: 1fr;
+  }
+
+  .bento__tile--wide {
+    grid-column: span 1;
+  }
+}
