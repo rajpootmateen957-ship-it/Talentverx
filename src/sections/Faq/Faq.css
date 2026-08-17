@@ -64,6 +64,7 @@
   display: grid;
   grid-template-rows: 0fr;
   transition: grid-template-rows var(--dur-slow) var(--ease-out);
+  overflow: hidden;
 }
 
 .faq__answer > p {

@@ -1,206 +1,166 @@
 .testi__container {
-  max-width: 780px;
+  max-width: 860px;
+  margin: 0 auto;
 }
 
-.testi__list {
+.testi__slider-container {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  align-items: center;
+  margin-top: var(--space-xl);
+  width: 100%;
 }
 
-.testi__item {
+.testi__card-wrapper {
+  width: 100%;
+  overflow: visible;
+  position: relative;
+}
+
+@keyframes testiFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.testi__card {
   background: var(--tv-white);
   border: 1px solid var(--tv-border);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  transition: border-color var(--dur) ease, box-shadow var(--dur) ease;
+  border-radius: var(--radius-xl);
+  padding: clamp(2rem, 5.5vw, 4rem) clamp(1.5rem, 4vw, 3rem);
+  text-align: center;
+  box-shadow: var(--tv-shadow);
+  animation: testiFadeIn 0.45s var(--ease-out) forwards;
+  will-change: transform, opacity;
 }
 
-.testi__item.is-open {
-  border-color: rgba(30, 95, 232, 0.35);
-  box-shadow: var(--tv-shadow-sm);
+.testi__quote-icon-wrap {
+  margin-bottom: var(--space-lg);
+  color: #1e5fe8;
+  opacity: 0.18;
+  display: inline-flex;
 }
 
-.testi__question {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: var(--space-md);
-  padding: 18px 22px;
-  background: none;
-  border: none;
-  text-align: left;
-  font-size: 16px;
-  font-weight: 600;
+.testi__quote-text {
+  font-size: clamp(1.125rem, 1.8vw, 1.45rem);
+  line-height: 1.65;
+  font-weight: 500;
   color: var(--tv-navy);
-}
-
-.testi__question:hover {
-  color: var(--tv-primary);
-}
-
-.testi__logo {
-  width: 44px;
-  height: 44px;
-  flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 9px;
-  border-radius: 12px;
-  background: var(--tv-bg);
-  border: 1px solid var(--tv-border);
-  animation: testi-float 3.2s ease-in-out infinite;
-}
-
-.testi__item:nth-child(even) .testi__logo {
-  animation-delay: 0.5s;
-}
-
-.testi__item:nth-child(3n) .testi__logo {
-  animation-delay: 1s;
-}
-
-.testi__logo-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-@keyframes testi-float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-}
-
-.testi__question-text {
-  flex: 1;
-}
-
-.testi__chevron {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 8px;
-  background: var(--tv-bg);
-  color: var(--tv-navy-soft);
-  flex-shrink: 0;
-  animation: testi-float 3.2s ease-in-out infinite;
-  animation-delay: 0.8s;
-  transition: transform var(--dur) var(--ease-out), background-color var(--dur) ease,
-    color var(--dur) ease, animation var(--dur) ease;
-}
-
-.testi__item.is-open .testi__chevron {
-  animation: none;
-  transform: rotate(180deg);
-  background: var(--tv-primary-light);
-  color: var(--tv-primary-dark);
-}
-
-.testi__answer {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows var(--dur-slow) var(--ease-out);
-}
-
-.testi__item.is-open .testi__answer {
-  grid-template-rows: 1fr;
-}
-
-.testi__body {
-  overflow: hidden;
-  min-height: 0;
-  padding: 0 22px 24px;
+  margin-bottom: var(--space-xl);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .testi__stars {
   display: flex;
-  gap: 3px;
+  justify-content: center;
+  gap: 5px;
   color: #f5b84b;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-xl);
 }
 
-.testi__stars svg {
-  animation: testi-twinkle 2.4s ease-in-out infinite;
+.testi__star {
+  filter: drop-shadow(0 1px 2px rgba(245, 184, 75, 0.2));
 }
 
-.testi__stars svg:nth-child(2n) {
-  animation-delay: 0.3s;
+.testi__avatar-wrap {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto var(--space-md);
+  border: 4px solid var(--tv-bg-deep);
+  box-shadow: 0 4px 10px rgba(11, 30, 61, 0.08);
 }
 
-.testi__stars svg:nth-child(3n) {
-  animation-delay: 0.6s;
+.testi__avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-@keyframes testi-twinkle {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.25);
-  }
+.testi__author-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--tv-navy);
+  margin: 0 0 4px 0;
 }
 
-.testi__quote-icon {
-  color: var(--tv-primary-light);
-  margin-bottom: var(--space-md);
-  animation: testi-float 3.2s ease-in-out infinite;
-  animation-delay: 0.3s;
+.testi__author-role {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--tv-text-muted);
+  margin: 0;
 }
 
-.testi__quote {
-  font-size: 15px;
-  line-height: 1.65;
-  color: var(--tv-navy-soft);
-}
-
-.testi__author {
+.testi__controls {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-top: var(--space-lg);
-  padding-top: var(--space-md);
-  border-top: 1px solid var(--tv-border);
+  justify-content: center;
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
 }
 
-.testi__avatar {
-  width: 42px;
-  height: 42px;
+.testi__control-btn {
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: var(--tv-primary);
-  color: #fff;
-  font-size: 13px;
-  font-weight: 600;
+  background: var(--tv-white);
+  border: 1px solid var(--tv-border);
+  color: var(--tv-navy);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  cursor: pointer;
+  box-shadow: var(--tv-shadow-sm);
+  transition: all var(--dur) var(--ease-out);
 }
 
-.testi__author strong {
-  display: block;
-  font-size: 14px;
-  color: var(--tv-navy);
+.testi__control-btn:hover {
+  background: var(--tv-bg);
+  border-color: var(--tv-border-strong);
+  color: var(--tv-primary);
+  transform: scale(1.05);
 }
 
-.testi__author small {
-  font-size: 12.5px;
-  color: var(--tv-text-muted);
+.testi__control-btn:active {
+  transform: scale(0.95);
+}
+
+.testi__dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.testi__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(11, 30, 61, 0.12);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all var(--dur) var(--ease-out);
+}
+
+.testi__dot.is-active {
+  width: 24px;
+  border-radius: 4px;
+  background: var(--tv-primary);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .testi__logo,
-  .testi__chevron,
-  .testi__quote-icon,
-  .testi__stars svg {
+  .testi__card {
     animation: none;
+  }
+  .testi__control-btn:hover {
+    transform: none;
   }
 }

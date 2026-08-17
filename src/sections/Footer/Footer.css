@@ -21,7 +21,8 @@
 .footer__logo {
   height: 40px;
   width: auto;
-  border-radius: 9px;
+  filter: invert(1) hue-rotate(180deg);
+  mix-blend-mode: screen;
 }
 
 .footer__wordmark {

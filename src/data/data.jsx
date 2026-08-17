@@ -391,32 +391,36 @@ export const TESTIMONIALS = [
     question: "How has TalentVerx changed attendance and leave tracking?",
     quote:
       "Attendance and leave tracking used to take my team half the week. With TalentVerx everything is in one place and our approval flow finally makes sense.",
-    name: "HR Manager",
-    role: "Mid-size services company",
+    name: "Sarah Jenkins",
+    role: "HR Manager",
+    avatar: "/images/avatars/w44.jpg",
     logo: "/logos/microsoft.svg",
   },
   {
     question: "What does TalentVerx do for workforce visibility?",
     quote:
       "The centralized employee directory and payroll summary give us a much clearer picture of our workforce. It's noticeably less spreadsheet work week to week.",
-    name: "Office Operations Lead",
-    role: "Growing product team",
+    name: "Michael Chen",
+    role: "Office Operations Lead",
+    avatar: "/images/avatars/m32.jpg",
     logo: "/logos/slack.svg",
   },
   {
     question: "Has TalentVerx reduced manual HR work for your team?",
     quote:
       "Our employees submit time-off requests themselves and see the status instantly. The back-and-forth emails we used to get are mostly gone.",
-    name: "People Operations Specialist",
-    role: "SaaS company",
+    name: "Emily Rodriguez",
+    role: "People Operations Specialist",
+    avatar: "/images/avatars/w47.jpg",
     logo: "/logos/google.svg",
   },
   {
     question: "How easy is TalentVerx for your team to use?",
     quote:
       "The interface is clean and intuitive, so our managers and employees actually use it every day instead of falling back to spreadsheets and email.",
-    name: "Operations Director",
-    role: "Retail company",
+    name: "David Kim",
+    role: "Operations Director",
+    avatar: "/images/avatars/m45.jpg",
     logo: "/logos/shopify.svg",
   },
 ];

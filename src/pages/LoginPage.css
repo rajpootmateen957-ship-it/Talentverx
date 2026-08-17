@@ -48,7 +48,7 @@
 .login__logo {
   height: 40px;
   width: auto;
-  border-radius: 9px;
+  mix-blend-mode: multiply;
 }
 
 .login__wordmark {

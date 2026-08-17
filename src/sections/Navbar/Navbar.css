@@ -42,7 +42,7 @@
 .tv-navbar__logo {
   height: 44px;
   width: auto;
-  border-radius: 10px;
+  mix-blend-mode: multiply;
   transition: height 300ms var(--ease-out);
 }
 

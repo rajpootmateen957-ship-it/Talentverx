@@ -9,6 +9,7 @@ import Verified from "../sections/Verified/Verified.jsx";
 import Counters from "../sections/Counters/Counters.jsx";
 import Features from "../sections/Features/Features.jsx";
 import Competitors from "../sections/Competitors/Competitors.jsx";
+import Testimonials from "../sections/Testimonials/Testimonials.jsx";
 import Pricing from "../sections/Pricing/Pricing.jsx";
 import Faq from "../sections/Faq/Faq.jsx";
 import Cta, { CtaBanner } from "../sections/Cta/Cta.jsx";
@@ -41,6 +42,7 @@ function Home() {
         <Counters />
         <Features />
         <Competitors />
+        <Testimonials />
         <Pricing />
         <Faq />
         <Cta />
