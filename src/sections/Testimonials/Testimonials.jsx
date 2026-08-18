@@ -62,7 +62,7 @@ function Testimonials() {
           <div className="testi__card-wrapper">
             <div className="testi__card" key={activeIndex}>
               <div className="testi__quote-icon-wrap">
-                <Quote size={48} className="testi__quote-icon" aria-hidden="true" />
+                <Quote size={36} className="testi__quote-icon" aria-hidden="true" />
               </div>
 
               <p className="testi__quote-text">
